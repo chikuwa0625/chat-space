@@ -8,7 +8,7 @@
 |nickname|string|null: false, foreign_key: true|
 ### Association
 - has_many :messages
-- has_many :groups ,through: :user_group
+- has_many :groups, through: :user_group
 
 ## groupテーブル
 |Column|Type|Options|
@@ -16,7 +16,7 @@
 |name|string|null: false, foreign_key: true|
 |user_group_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :users ,through: :user_group
+- has_many :users, through: :user_group
 - has_many :messages
 
 ## messageテーブル
