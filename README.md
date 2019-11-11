@@ -8,7 +8,7 @@
 |nickname|string|null: false, index: true|
 ### Association
 - has_many :messages
-- has_many :groups
+- has_many :groups, through: :user_groups
 - has_many :user_groups
 
 ## groupテーブル
