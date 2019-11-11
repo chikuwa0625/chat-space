@@ -8,17 +8,17 @@
 |nickname|string|null: false, index: true|
 ### Association
 - has_many :messages
-- has_many :groups, through: :user_groups
+- has_many :groups
 - has_many :user_groups, through: :user_groups
 
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false|
 ### Association
 - has_many :users
 - has_many :messages
-- has_many :user_groups, through: :user_groups
+- has_many :user_groups
 
 ## messageテーブル
 |Column|Type|Options|
