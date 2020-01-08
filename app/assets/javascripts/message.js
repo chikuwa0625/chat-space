@@ -72,7 +72,6 @@ $('#new_message').on('submit', function(e){
 
 var reloadMessages = function() {
   last_message_id = $('.message:last').data("message-id");
-  console.log(last_message_id);
   $.ajax({
     url: "api/messages",
     type: 'get',
@@ -93,7 +92,7 @@ var reloadMessages = function() {
     }
   })
   .fail(function() {
-    console.log('error');
+    alert("メッセージの送信に失敗しました");
   });
 　};
 
