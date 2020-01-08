@@ -1,4 +1,5 @@
 $(function(){ 
+
   function buildHTML(message){
    if ( message.image ) {
      var html =
@@ -39,6 +40,9 @@ $(function(){
      return html;
    };
  }
+
+// メッセージ投稿用(非同期通信)
+
 $('#new_message').on('submit', function(e){
  e.preventDefault();
  var formData = new FormData(this);
@@ -62,6 +66,39 @@ $('#new_message').on('submit', function(e){
     alert("メッセージ送信に失敗しました");
     $('.form__submit').prop('disabled', false);
   })
-  
 })
+
+// 自動更新用
+
+var reloadMessages = function() {
+  last_message_id = $('.message:last').data("message-id");
+  console.log(last_message_id);
+  $.ajax({
+    url: "api/messages",
+    type: 'get',
+    dataType: 'json',
+    data: {id: last_message_id}
+  })
+
+  .done(function(messages) {
+    if (messages.length !== 0) {
+    var insertHTML = '';
+    $.each(messages, function(i, message) {
+      insertHTML += buildHTML(message)
+    });
+    $('.messages').append(insertHTML);
+    $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+    $("#new_message")[0].reset();
+    $(".form__submit").prop("disabled", false);
+    }
+  })
+  .fail(function() {
+    console.log('error');
+  });
+　};
+
+//自動更新の場合分け
+if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+  setInterval(reloadMessages, 7000);
+}
 });
