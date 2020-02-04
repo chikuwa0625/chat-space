@@ -115,12 +115,11 @@
     }
 
     .messages {
-      height: 420px;
+      height: 495px;
       padding: 46px 40px;
       background-color: #fafafa;
       overflow: scroll;
       
-
       .message {
         padding-bottom: 40px;
 
@@ -152,13 +151,15 @@
     .form {
       background-color: #DDDDDD;
       box-sizing: border-box;
-      height: 90px;
-      padding: 20px 50px 20px 40px;
+      height: 100px;
+      padding: 27px 102px 20px 92px;
+      position: fixed;
+
       &__message {
         border: none;
         float: left;
         height: 50px;
-        width: calc(100% - 150px);
+        width: 800px;
       }
       &__mask {
         background-color: $white;
