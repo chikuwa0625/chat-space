@@ -1,10 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 .wrapper {
   margin: 0;
   padding: 0;
   display: flex;
-  position: fixed;
 
-  
+
   .chat-side {
     width: 300px;
     color: white;
@@ -45,7 +48,7 @@
       }
 
     .groups {
-      height: 100vh;
+      height: calc(100vh - 100px);
       background-color: #2f3e51;
       padding: 20px 20px 0;
       overflow: scroll;
@@ -115,7 +118,7 @@
     }
 
     .messages {
-      height: 495px;
+      height: calc(100vh - 200px);
       padding: 46px 40px;
       background-color: #fafafa;
       overflow: scroll;
@@ -153,7 +156,8 @@
       box-sizing: border-box;
       height: 100px;
       padding: 27px 102px 20px 92px;
-      position: fixed;
+      z-index: 1;
+      
 
       &__message {
         border: none;
