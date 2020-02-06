@@ -38,10 +38,12 @@
 
            &__new-group {
             margin-left: 0.3rem;
+            color: white;
            }
 
            &__edit-user {
             margin-left: 0.3rem;
+            color: white;
            }
         }
        }
@@ -126,11 +128,11 @@
       .message {
         padding-bottom: 40px;
 
-        &__upper-info {
+        .upper-message {
           display: flex;
           margin-bottom: 10px;
 
-          &__talker {
+          &__user-name {
             color: #434a54;
             font-size: 16px;
             font-weight: bold;
@@ -156,14 +158,14 @@
       box-sizing: border-box;
       height: 100px;
       padding: 27px 102px 20px 92px;
-      z-index: 1;
+      overflow: scroll;
       
 
       &__message {
         border: none;
         float: left;
         height: 50px;
-        width: 800px;
+        width: calc(100% - 160px);
       }
       &__mask {
         background-color: $white;
